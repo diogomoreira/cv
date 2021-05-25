@@ -1,0 +1,171 @@
+% Diogo Moreira personal CV
+% I made this CV following this tutorial
+% http://www.howtotex.com/general/a-guide-to-building-a-plain-and-simple-latex-cv/
+
+\documentclass[a4paper,10pt]{article}
+\usepackage{amsmath,amsfonts,amsthm} 
+\usepackage[pdftex]{graphicx} 
+\usepackage[utf8]{inputenc}
+\usepackage[portuges]{babel}
+\usepackage[svgnames]{xcolor} 
+\usepackage{geometry}
+\usepackage{geometry}
+\linespread{1.15}
+\geometry{
+    a4paper,
+    total={170mm,257mm},
+    left=20mm,
+    top=20mm,
+}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{wrapfig}
+\usepackage{fancyhdr}
+\usepackage{lmodern}
+
+\pagestyle{empty}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+\usepackage{sectsty} 
+\sectionfont{% 
+	\sectionrule{0pt}{0pt}{-5pt}{0.25pt} 
+}
+	
+\newlength{\spacebox} 
+\settowidth{\spacebox}{88888888}
+\newcommand{\sepspace}{\vspace*{0.5em}}
+
+\newcommand{\Name}[1]{\noindent\huge\textbf{#1}\normalsize\normalfont}
+
+\newcommand{\NewPart}[1]{ \section*{\large {#1}}}
+
+\newcommand{\PersonalEntry}[2]{
+		\noindent\hangindent=1em\hangafter=0 		% Indentation
+		\parbox{\spacebox}{							% Box to align text
+		\textit{#1}}								% Entry name (birth, address, etc.)
+		\hspace{0em} #2 \par}						% Entry value
+
+\newcommand{\SkillsEntry}[2]{						% Same as \PersonalEntry
+		\noindent\hangindent=2em\hangafter=0 		% Indentation
+		\parbox{\spacebox}{							% Box to align text
+		\textit{#1}}								% Entry name (birth, address, etc.)
+		\hspace{1.5em} #2 \par}						% Entry value	
+		
+\newcommand{\EducationEntry}[4]{
+		\noindent \textbf{#1} \hfill 					% Study
+		\colorbox{White}{%
+			\parbox{6em}{%
+			\hfill\color{Black}#2}} \par				% Duration
+		\noindent \textit{#3} \par						% School
+		\noindent\hangindent=0em\hangafter=0 \normalsize #4 	% Description
+		\normalsize \par}
+
+\newcommand{\WorkEntry}[4]{								% Same as \EducationEntry
+		\noindent \textbf{#1} \hfill 					% Jobname
+		\colorbox{White}{\color{Black}#2} \par			% Duration
+		\noindent \textit{#3} \par						% Company
+		\noindent\hangindent=2em\hangafter=0 \normalsize #4 	% Description
+		\normalsize \par}
+		
+%%% ------------------------------------------------------------
+%%% BEGIN DOCUMENT
+%%% ------------------------------------------------------------
+\begin{document}
+
+\Name{Diogo Dantas Moreira}
+
+%\sepspace
+
+%%% Personal details
+%%% ------------------------------------------------------------
+\sepspace
+
+\PersonalEntry{email}{\href{mailto:diogo.dmoreira@gmail.com}{diogo.dmoreira@gmail.com}}
+\PersonalEntry{phone}{+55 83 99655 1808}
+
+%%% Education
+%%% ------------------------------------------------------------
+\NewPart{Formal education/degree}{} 
+\EducationEntry{Master's in Software Engineering}{2017 - 2019}{\href{https://cesar.school/}{CESAR School} - Recife - PE, Brazil}{Research area: \textbf{Software Testing}, \textbf{AI Testing}, \textbf{Metamorphic Testing}}
+\sepspace
+\sepspace
+\EducationEntry{Specialization. MBA in Software Engineering}{2013 - 2014}{\href{https://estacio.br/}{Estácio iDEZ} - João Pessoa - PB, Brazil}{}
+% \sepspace
+\EducationEntry{Undergraduate studies in Software Analysis and Development}{2008 - 2012}{\href{https://www.ifpb.edu.br/}{Instituto Federal da Paraíba} - Cajazeiras - PB, Brazil}{}
+
+\NewPart{Professional experience}{}
+
+\WorkEntry{Adjunct Professor/Researcher}{2014 - present}{\href{https://www.ifpb.edu.br/}{Instituto Federal da Paraíba}, Full-time}{Lectures on Software Development/Engineering, covering topics such as Web Development, Software Testing, Design Patterns, UML, REST, Spring Boot, Git, Maven and JavaEE.}
+\sepspace
+
+\WorkEntry{Software Engineer}{2013-2014}{\href{http://www.phoebus.com.br/}{Phoebus Tecnologia}, Full-time}{Worked with financial transaction processing backoffice systems using Java technologies with Spring Framework, Maven, JPA / Hibernate and Adobe Flex. Reports using Eclipse BIRT. Relational databases Oracle and Microsoft SQL Server. Systems documentation for IT Help Desk activities, such as deployment, update and version rollback.} 
+\sepspace
+
+\WorkEntry{Developer}{2012-2013}{\href{https://www.indracompany.com/es/pais/brasil}{Indra Company}, Full-time}{Worked with development of Paraíba State Court of Justice systems using Java technologies, such as JSF 2.0 with Richfaces and Primefaces, JPA), Maven, HTML, CSS, XML.}
+\sepspace
+
+% \WorkEntry{Developer}{2011-2012}{Recursive, Part-time}{Desenvolvimento de aplicações corporativas com clientes desktop e web em Java utilizando a plataforma Java EE com as tecnologias EJB, JPA, Servlets, JSP, JSF 2.0 com Primefaces. Desenvolvimento de aplicações web utilizando PHP, XHTML, CSS com banco de dados MySQL.}
+
+%%% Skills
+%%% ------------------------------------------------------------
+
+\NewPart{Skills}{}
+
+\begin{itemize}
+    \linespread{1}
+    \item \textbf{Full-stack Web Development}: Java (Spring Boot, JSF, EJB), HTML5, CSS3, Sass, Styled Components, JavaScript/TypeScript (ReactJS, Angular), REST, GraphQL, SSGs (Gatsby)
+    \item \textbf{Database Operations}: PostgreSQL (+PostGIS), MySQL, Oracle
+    \item \textbf{Machine Learning}: Sci-kit learn
+    \item \textbf{Devops}: Docker, Jenkins, TravisCI
+    \item \textbf{Version control}: Git, Gitflow, SVN
+    \item \textbf{Extras}: \LaTeX (scientific paper writing)
+\end{itemize}
+
+% Languages and Frameworks
+% \SkillsEntry{Software}{\textbf{Java}, JPA, Servlets, JSP, JSF, EJB}
+% \SkillsEntry{}{Spring Framework, MVC \& Data}
+% \SkillsEntry{}{HTML5 \& CSS}
+% \SkillsEntry{}{Adoble Flex + ActionScript 3.0}
+% \SkillsEntry{}{Projetos orientados a objeto utilizando UML}
+% \SkillsEntry{}{Padrões de projeto orientado a objeto para aplicações desktop e web}
+% \SkillsEntry{}{Android}
+% \SkillsEntry{}{Shell Scripting}
+% \SkillsEntry{}{Noções de desenvolvimento com C\# e ASP.NET MVC}
+
+\sepspace
+
+% Databases
+% \SkillsEntry{Databases}{PostgreSQL (+PostGIS)}
+% \SkillsEntry{}{Microsoft SQL Server}
+% \SkillsEntry{}{Oracle Database}
+
+\sepspace
+
+% Tools
+
+% \SkillsEntry{Ferramentas}{SCMs: CVS, SVN e GIT}
+% \SkillsEntry{}{Maven}
+% \SkillsEntry{}{Tomcat, Glassfish, Jetty Server}
+% \SkillsEntry{}{JUDE / Astah}
+% \SkillsEntry{}{SOAPUI}
+% \SkillsEntry{}{Oracle SQL Developer}
+% \SkillsEntry{}{Microsoft SQL Server Management}
+% \SkillsEntry{}{Redmine}
+
+% \NewPart{Idiomas}{}
+% \SkillsEntry{}{Português (nativo)}
+% \SkillsEntry{}{Inglês (avançado)}
+
+%%% References
+%%% ------------------------------------------------------------
+
+\NewPart{Other informations}{}
+\SkillsEntry{LinkedIn}{\url{http://br.linkedin.com/in/diogodmoreira/}}
+\SkillsEntry{Github}{\url{http://github.com/diogomoreira}}
+% \SkillsEntry{Lattes}{\url{http://lattes.cnpq.br/2745996619940977}}
+
+\end{document}
