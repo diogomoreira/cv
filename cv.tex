@@ -2,150 +2,170 @@
 % I made this CV following this tutorial
 % http://www.howtotex.com/general/a-guide-to-building-a-plain-and-simple-latex-cv/
 
-\documentclass[paper=a4,fontsize=12pt]{article}
+\documentclass[a4paper,10pt]{article}
 \usepackage{amsmath,amsfonts,amsthm} 
 \usepackage[pdftex]{graphicx} 
 \usepackage[utf8]{inputenc}
 \usepackage[portuges]{babel}
-\usepackage[svgnames]{xcolor} 
+\usepackage[svgnames]{xcolor}
+\usepackage{array, booktabs}
+\usepackage{caption}
 \usepackage{geometry}
-\usepackage{url} 
+\usepackage{multicol}
+\linespread{1.15}
+\geometry{
+    a4paper,
+    total={180mm,257mm},
+    left=15mm,
+    top=15mm,
+    bottom=15mm
+}
+\usepackage{url}
+\usepackage{hyperref}
 \usepackage{wrapfig}
+\usepackage{fancyhdr}
 \usepackage{lmodern}
 
-\pagestyle{empty}
 
+\pagestyle{empty}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
 \usepackage{sectsty} 
 \sectionfont{% 
-	\sectionrule{0pt}{0pt}{-10pt}{1pt} 
+	\sectionrule{0pt}{0pt}{-5pt}{0.25pt} 
 }
-
+	
 \newlength{\spacebox} 
-\settowidth{\spacebox}{8888888888}
-\newcommand{\sepspace}{\vspace*{,8em}}
+\settowidth{\spacebox}{88888888}
+\newcommand{\sepspace}{\vspace*{0.75em}}
 
-\newcommand{\Name}[1]{ 
-	\Huge
-	\noindent\textbf{#1} \par \normalsize \normalfont
-}
+\newcommand{\Name}[1]{\noindent\huge\textbf{#1}\normalsize\normalfont}
 
-\newcommand{\NewPart}[1]{ \section*{\large \uppercase{#1}}}
+\newcommand{\NewPart}[1]{\section*{\large{#1}}}
 
 \newcommand{\PersonalEntry}[2]{
-	\noindent\hangindent=2em\hangafter=0 		% Indentation
-	\parbox{\spacebox}{							% Box to align text
+		\noindent\hangindent=1em\hangafter=0 		% Indentation
+		\parbox{\spacebox}{							% Box to align text
 		\textit{#1}}								% Entry name (birth, address, etc.)
-	\hspace{1.5em} #2 \par}						% Entry value
-
-\newcommand{\SkillsEntry}[2]{						% Same as \PersonalEntry
-	\noindent\hangindent=2em\hangafter=0 		% Indentation
-	\parbox{\spacebox}{							% Box to align text
-		\textit{#1}}								% Entry name (birth, address, etc.)
-	\hspace{1.5em} #2 \par}						% Entry value	
+		\hspace{0.5em} #2 \par}						% Entry value
 
 \newcommand{\EducationEntry}[4]{
-	\noindent \textbf{#1} \hfill 					% Study
-	\colorbox{White}{%
-		\parbox{6em}{%
+		\noindent \textbf{#1} \hfill 					% Study
+		\colorbox{White}{%
+			\parbox{6em}{%
 			\hfill\color{Black}#2}} \par				% Duration
-	\noindent \textit{#3} \par						% School
-	\noindent\hangindent=2em\hangafter=0 \small #4 	% Description
-	\normalsize \par}
+		\noindent \textit{#3} \par						% School
+		\noindent \hangindent=0em\hangafter=0 \normalsize #4 	% Description
+		\normalsize \par
+		\vspace{0.5em}
+	}
 
 \newcommand{\WorkEntry}[4]{								% Same as \EducationEntry
-	\noindent \textbf{#1} \hfill 					% Jobname
-	\colorbox{White}{\color{Black}#2} \par			% Duration
-	\noindent \textit{#3} \par						% Company
-	\noindent\hangindent=2em\hangafter=0 \small #4 	% Description
-	\normalsize \par}
-
+		\noindent \textbf{#1} \hfill 					% Jobname
+		\colorbox{White}{\color{Black}#2} \par			% Duration
+		\noindent \textit{#3} \par						% Company
+		\noindent\hangindent=2em\hangafter=0 \normalsize #4 	% Description
+		\normalsize \par
+		\vspace{0.5em}
+	}
+		
 %%% ------------------------------------------------------------
 %%% BEGIN DOCUMENT
 %%% ------------------------------------------------------------
 \begin{document}
-	
-	\Name{Diogo Dantas Moreira}
-	
-	%\sepspace
-	
-	%%% Personal details
-	%%% ------------------------------------------------------------
-	\sepspace
-	
-	\PersonalEntry{Endereço}{Abel Moreira, 45 - AP 503 - Cajazeiras - PB}
-	\PersonalEntry{Telefone}{+55 83 99655 1808}
-	\PersonalEntry{E-mail}{\url{diogo.dmoreira@gmail.com}}
-	
-	%%% Education
-	%%% ------------------------------------------------------------
-	\NewPart{Formação}{} 
-	\EducationEntry{Mestrado. Engenharia de Software}{2017-2019}{CESAR School - Recife - PE}{}
-	% \sepspace
-	\EducationEntry{Especialização. MBA em Engenharia de Software}{2013-2014}{Faculdade Estácio iDEZ - João Pessoa - PB}{}
-	% \sepspace
-	\EducationEntry{Superior de Tecnologia. Análise e Desenvolvimento de Sistemas}{2008-2012}{Instituto Federal de Educação, Ciência e Tecnologia da Paraíba - Cajazeiras - PB}{}
-	
-	%%% Work experience
-	%%% ------------------------------------------------------------
-	\NewPart{Experiência Profissional}{}
-	
-	
-	\WorkEntry{Professor Efetivo}{2014-presente}{Instituto Federal de Educação, Ciência e Tecnologia da Paraíba, Full-time}{Professor efetivo do Campus Cajazeiras - PB, lecionando disciplinas de \textbf{Linguagens de Marcação}, \textbf{Testes de Software} e \textbf{Padrões de Projeto}. Membro do \textbf{Grupo de Pesquisa em Engenharia de Software}. Além disso, estive na função de Coordenador do CST em Análise e Desenvolvimento de Sistemas durante os anos 2015 a 2017 e entre 2020 e 2021.}
-	\sepspace
-	
-	\WorkEntry{Engenheiro de Software}{2013-2014}{Phoebus Tecnologia, Full-time}{Desenvolvimento de sistemas de processamento de transações eletrônicas utilizando tecnologias Java com Spring Framework, Maven, JPA/Hibernate e Adobe Flex. Criação de relatórios utilizando Eclipse BIRT. Utilização de bancos de dados relacionais Oracle e Microsoft SQL Server. Documentação de sistemas para atividades de implantação, atualização e rollback de versões.}
-	\sepspace
-	
-	\WorkEntry{Analista Desenvolvedor}{2012-2013}{Indra Company, Full-time}{Desenvolvimento de sistemas para o Tribunal de Justiça do Estado da Paraíba utilizando tecnologias Java (JSF 2.0 com Richfaces e Primefaces, JPA), HTML, CSS, XML. Além disso, trabalhei com Maven para automação de builds e Redmine.}
-	\sepspace
-	
-	\WorkEntry{Analista Desenvolvedor}{2011-2012}{Recursive, Part-time}{Desenvolvimento de aplicações corporativas com clientes desktop e web em Java utilizando a plataforma Java EE com as tecnologias EJB, JPA, Servlets, JSP, JSF 2.0 com Primefaces. Desenvolvimento de aplicações web utilizando PHP, XHTML, CSS com banco de dados MySQL.}
-	
-	%%% Skills
-	%%% ------------------------------------------------------------
-	
-	\NewPart{Habilidades}{}
-	
-	% Languages and Frameworks
-	\SkillsEntry{Software}{\textbf{Java}, JPA, Servlets, JSP, JSF, EJB}
-	\SkillsEntry{}{Spring Framework, MVC \& Data}
-	\SkillsEntry{}{Angular 2}
-	\SkillsEntry{}{HTML5 \& CSS}
-	\SkillsEntry{}{Adoble Flex + ActionScript 3.0}
-	\SkillsEntry{}{UML}
-	\SkillsEntry{}{Shell Scripting}
-	
-	\sepspace
-	
-	% Databases
-	\SkillsEntry{Databases}{PostgreSQL (+PostGIS)}
-	\SkillsEntry{}{Microsoft SQL Server}
-	\SkillsEntry{}{Oracle Database}
-	
-	\sepspace
-	
-	% Tools
-	
-	\SkillsEntry{Ferramentas}{SCMs: CVS, SVN e GIT}
-	\SkillsEntry{}{Maven}
-	\SkillsEntry{}{Tomcat, Glassfish, Jetty Server}
-	\SkillsEntry{}{JUDE / Astah}
-	\SkillsEntry{}{SOAPUI}
-	\SkillsEntry{}{Oracle SQL Developer}
-	\SkillsEntry{}{Microsoft SQL Server Management}
-	\SkillsEntry{}{JIRA}
-	\SkillsEntry{}{Redmine}
-	
-	\NewPart{Idiomas}{}
-	\SkillsEntry{}{Português (nativo)}
-	\SkillsEntry{}{Inglês (avançado)}
-	
-	%%% References
-	%%% ------------------------------------------------------------
-	
-	\NewPart{Outras informações}{}
-	\SkillsEntry{LinkedIn}{\url{http://br.linkedin.com/in/diogodmoreira/}}
-	\SkillsEntry{Github}{\url{http://github.com/diogomoreira}}
-	\SkillsEntry{Lattes}{\url{http://lattes.cnpq.br/2745996619940977}}
-	
+
+\Name{Diogo Dantas Moreira}
+
+%%% Personal details
+%%% ------------------------------------------------------------
+\sepspace
+
+\PersonalEntry{email}{\href{mailto:diogo.dmoreira@gmail.com}{diogo.dmoreira@gmail.com}}
+\PersonalEntry{phone}{+55 83 99655 1808}
+\PersonalEntry{linkedIn}{\href{http://br.linkedin.com/in/diogodmoreira/}{/diogodmoreira}}
+\PersonalEntry{github}{\href{http://github.com/diogomoreira}{/diogomoreira}}
+
+%%% Education
+%%% ------------------------------------------------------------
+\NewPart{Formal education/degree}
+
+\EducationEntry{Master's in Software Engineering}{2017 - 2019}{\href{https://cesar.school/}{CESAR School} - Recife - PE, Brazil}{Master's thesis: \textbf{Testing acoustic scene classifiers using Metamorphic Relations}. Research area: \textbf{Software Testing}, \textbf{Artificial Intelligence Testing}, \textbf{Metamorphic Testing}}
+
+\EducationEntry{Specialization. MBA in Software Engineering}{2013 - 2014}{\href{https://estacio.br/}{Estácio iDEZ} - João Pessoa - PB, Brazil}{}
+
+\EducationEntry{Undergraduate studies in Software Analysis and Development}{2008 - 2012}{\href{https://www.ifpb.edu.br/}{Instituto Federal da Paraíba} - Cajazeiras - PB, Brazil}{}
+
+\NewPart{Professional experience}
+
+\WorkEntry{Adjunct Professor}{Oct/2014 - Present}{\href{https://www.ifpb.edu.br/}{Instituto Federal da Paraíba}, Full-time}{Lectures on Software Development/Engineering, covering topics such as Web Development (with HTML, CSS, Javascript), Software Testing, Design Patterns, UML, REST, Spring Boot, Git, Maven and JavaEE.}
+
+\WorkEntry{Software Engineer}{Jan/2013 - Oct/2014}{\href{http://www.phoebus.com.br/}{Phoebus Tecnologia}, Full-time}{Worked developing financial transaction processing backoffice systems using Java technologies with Spring Framework, Maven, JPA / Hibernate and Adobe Flex. Reports using Eclipse BIRT. Relational databases Oracle and Microsoft SQL Server. Systems documentation for IT Help Desk activities, such as deployment, update and version rollback.}
+
+\WorkEntry{Developer}{Jun/2012-Jan/2013}{\href{https://www.indracompany.com/es/pais/brasil}{Indra Company}, Full-time}{Worked with development of Paraíba State Court of Justice systems using Java technologies, such as JSF 2.0 with Richfaces and Primefaces, JPA), Maven, HTML, CSS, XML.}
+
+\WorkEntry{Developer}{Jan/2011-Jan/2012}{Recursive, Part-time}{The main assignment of the position was to develop a solution for the IFPB Book Library. My assignments involved front-end and back-end development using Java technologies, such as EJB, JPA and Swing.}
+
+%%% Skills
+%%% ------------------------------------------------------------
+
+\NewPart{Skills}
+\begin{multicols}{2}
+\begin{itemize}
+    \linespread{1}
+    \item \textbf{Java}: Spring Boot, JSF, EJB, JMS
+    \item \textbf{Web development}: HTML5, CSS (Sass, Styled Components, CSS Modules), JavaScript/TypeScript, ReactJS, Angular 2+, REST, GraphQL, Static Site Generators (Gatsby and NextJS), NestJS, Node, Express
+    \item \textbf{Database Operations}: PostgreSQL (+PostGIS), MySQL, Oracle, ImmuDB, MariaDB, ElasticSearch/OpenSearch, Redis, Kafka, RabbitMQ
+    \item \textbf{Machine Learning}: Sci-kit learn
+    \item \textbf{Devops}: Docker, Jenkins, TravisCI
+    \item \textbf{Version control}: Git, SVN, CVS. Trunk-based and Git-flow based development
+    \item \textbf{Extras}: \LaTeX (scientific paper writing), Shell Script
+\end{itemize}
+\end{multicols}
+% \vspace{-1cm}
+
+
+% Languages and Frameworks
+% \SkillsEntry{Software}{\textbf{Java}, JPA, Servlets, JSP, JSF, EJB}
+% \SkillsEntry{}{Spring Framework, MVC \& Data}
+% \SkillsEntry{}{HTML5 \& CSS}
+% \SkillsEntry{}{Adoble Flex + ActionScript 3.0}
+% \SkillsEntry{}{Projetos orientados a objeto utilizando UML}
+% \SkillsEntry{}{Padrões de projeto orientado a objeto para aplicações desktop e web}
+% \SkillsEntry{}{Android}
+% \SkillsEntry{}{Shell Scripting}
+% \SkillsEntry{}{Noções de desenvolvimento com C\# e ASP.NET MVC}
+
+\sepspace
+
+% Databases
+% \SkillsEntry{Databases}{PostgreSQL (+PostGIS)}
+% \SkillsEntry{}{Microsoft SQL Server}
+% \SkillsEntry{}{Oracle Database}
+
+\sepspace
+
+% Tools
+
+% \SkillsEntry{Ferramentas}{SCMs: CVS, SVN e GIT}
+% \SkillsEntry{}{Maven}
+% \SkillsEntry{}{Tomcat, Glassfish, Jetty Server}
+% \SkillsEntry{}{JUDE / Astah}
+% \SkillsEntry{}{SOAPUI}
+% \SkillsEntry{}{Oracle SQL Developer}
+% \SkillsEntry{}{Microsoft SQL Server Management}
+% \SkillsEntry{}{Redmine}
+
+% \NewPart{Idiomas}{}
+% \SkillsEntry{}{Português (nativo)}
+% \SkillsEntry{}{Inglês (avançado)}
+
+%%% References
+%%% ------------------------------------------------------------
+
+
+
 \end{document}
