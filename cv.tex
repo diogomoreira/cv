@@ -6,25 +6,24 @@
 \usepackage{amsmath,amsfonts,amsthm} 
 \usepackage[pdftex]{graphicx} 
 \usepackage[utf8]{inputenc}
-\usepackage[portuges]{babel}
 \usepackage[svgnames]{xcolor}
 \usepackage{array, booktabs}
 \usepackage{caption}
 \usepackage{geometry}
 \usepackage{multicol}
-\linespread{1.15}
 \geometry{
     a4paper,
-    total={180mm,257mm},
+    total={190mm,257mm},
     left=15mm,
+    right=15mm,
     top=15mm,
     bottom=15mm
 }
 \usepackage{url}
 \usepackage{hyperref}
-\usepackage{wrapfig}
-\usepackage{fancyhdr}
-\usepackage{lmodern}
+\usepackage{sectsty}
+
+\renewcommand\familydefault{\sfdefault}
 
 
 \pagestyle{empty}
@@ -34,7 +33,7 @@
     filecolor=magenta,      
     urlcolor=blue,
 }
-\usepackage{sectsty} 
+
 \sectionfont{% 
 	\sectionrule{0pt}{0pt}{-5pt}{0.25pt} 
 }
@@ -45,13 +44,13 @@
 
 \newcommand{\Name}[1]{\noindent\huge\textbf{#1}\normalsize\normalfont}
 
-\newcommand{\NewPart}[1]{\section*{\large{#1}}}
+\newcommand{\NewPart}[1]{\section*{\large{\textbf{#1}}}}
 
 \newcommand{\PersonalEntry}[2]{
-		\noindent\hangindent=1em\hangafter=0 		% Indentation
+		\noindent\hangindent=0em\hangafter=0 		% Indentation
 		\parbox{\spacebox}{							% Box to align text
 		\textit{#1}}								% Entry name (birth, address, etc.)
-		\hspace{0.5em} #2 \par}						% Entry value
+		\hspace{4.5em} #2 \par}						% Entry value
 
 \newcommand{\EducationEntry}[4]{
 		\noindent \textbf{#1} \hfill 					% Study
@@ -82,32 +81,38 @@
 
 %%% Personal details
 %%% ------------------------------------------------------------
-\sepspace
 
-\PersonalEntry{email}{\href{mailto:diogo.dmoreira@gmail.com}{diogo.dmoreira@gmail.com}}
-\PersonalEntry{phone}{+55 83 99655 1808}
+
+\begin{multicols}{2}
+
+\PersonalEntry{email}{\texttt{\href{mailto:diogo.dmoreira@gmail.com}{diogo.dmoreira@gmail.com}}}
+\PersonalEntry{phone/whatsapp}{+55 83 99655 1808}
 \PersonalEntry{linkedIn}{\href{http://br.linkedin.com/in/diogodmoreira/}{/diogodmoreira}}
 \PersonalEntry{github}{\href{http://github.com/diogomoreira}{/diogomoreira}}
-
+\end{multicols}
 %%% Education
 %%% ------------------------------------------------------------
+
+\NewPart{Professional experience}
+
+\WorkEntry{Software Engineer}{Jun/2021 - Dec/2023}{\href{https://www.translucentcomputing.com/}{Translucent Computing}, Full-time}{Development of healthcare systems based on FHIR specs using Java with Spring Boot and Webflux/Reactive Web, NestJS (+Express) integrated with Kafka, Keycloak, Redis, PostgreSQL and Elasticsearch/Opensearch. Development of integration modules using OpenAI API. Development of a domain specific languages using Typescript and NodeJS APIs. Minor frontend tasks using React + Redux. I also worked on some tasks using Terraform, Shell Script and Kubernetes}
+
+\WorkEntry{Adjunct Professor}{Oct/2014 - Present}{\href{https://www.ifpb.edu.br/}{Instituto Federal da Paraíba}, Full-time}{Lectures on Software Development / Software Engineering, covering topics such as Web Development (with HTML, CSS, Javascript, Node and Express), Software Testing (with JUnit + Mockito, Jest, Cypress and Selenium), Design Patterns, UML, REST, Spring Boot, Git, Maven and JavaEE.}
+
+\WorkEntry{Software Engineer}{Jan/2013 - Oct/2014}{\href{http://www.phoebus.com.br/}{Phoebus Tecnologia}, Full-time}{Worked developing financial transaction processing backoffice systems using Java technologies with Spring Framework, Maven, JPA / Hibernate and Adobe Flex. Reports using Eclipse BIRT. Relational databases Oracle and Microsoft SQL Server. Systems documentation for IT Help Desk activities, such as deployment, update and version rollback.}
+
+\WorkEntry{Software Developer}{Jun/2012-Jan/2013}{\href{https://www.indracompany.com/es/pais/brasil}{Indra Company}, Full-time}{Worked with development of Paraíba State Court of Justice systems using Java technologies, such as JSF 2.0 with Richfaces and Primefaces, JPA, Maven, HTML, CSS, XML.}
+
+\WorkEntry{Developer}{Jan/2011-Jan/2012}{Recursive, Part-time}{The main assignment of the position was to develop a solution for a book library for a Federal Institute Campus. My assignments involved front-end and back-end development using Java technologies, such as EJB, JPA, JMS and Swing.}
+
 \NewPart{Formal education/degree}
 
-\EducationEntry{Master's in Software Engineering}{2017 - 2019}{\href{https://cesar.school/}{CESAR School} - Recife - PE, Brazil}{Master's thesis: \textbf{Testing acoustic scene classifiers using Metamorphic Relations}. Research area: \textbf{Software Testing}, \textbf{Artificial Intelligence Testing}, \textbf{Metamorphic Testing}}
+\EducationEntry{Master's in Software Engineering}{2017 - 2019}{\href{https://cesar.school/}{CESAR School} - Recife - PE, Brazil}{}
 
 \EducationEntry{Specialization. MBA in Software Engineering}{2013 - 2014}{\href{https://estacio.br/}{Estácio iDEZ} - João Pessoa - PB, Brazil}{}
 
 \EducationEntry{Undergraduate studies in Software Analysis and Development}{2008 - 2012}{\href{https://www.ifpb.edu.br/}{Instituto Federal da Paraíba} - Cajazeiras - PB, Brazil}{}
 
-\NewPart{Professional experience}
-
-\WorkEntry{Adjunct Professor}{Oct/2014 - Present}{\href{https://www.ifpb.edu.br/}{Instituto Federal da Paraíba}, Full-time}{Lectures on Software Development/Engineering, covering topics such as Web Development (with HTML, CSS, Javascript), Software Testing, Design Patterns, UML, REST, Spring Boot, Git, Maven and JavaEE.}
-
-\WorkEntry{Software Engineer}{Jan/2013 - Oct/2014}{\href{http://www.phoebus.com.br/}{Phoebus Tecnologia}, Full-time}{Worked developing financial transaction processing backoffice systems using Java technologies with Spring Framework, Maven, JPA / Hibernate and Adobe Flex. Reports using Eclipse BIRT. Relational databases Oracle and Microsoft SQL Server. Systems documentation for IT Help Desk activities, such as deployment, update and version rollback.}
-
-\WorkEntry{Developer}{Jun/2012-Jan/2013}{\href{https://www.indracompany.com/es/pais/brasil}{Indra Company}, Full-time}{Worked with development of Paraíba State Court of Justice systems using Java technologies, such as JSF 2.0 with Richfaces and Primefaces, JPA), Maven, HTML, CSS, XML.}
-
-\WorkEntry{Developer}{Jan/2011-Jan/2012}{Recursive, Part-time}{The main assignment of the position was to develop a solution for the IFPB Book Library. My assignments involved front-end and back-end development using Java technologies, such as EJB, JPA and Swing.}
 
 %%% Skills
 %%% ------------------------------------------------------------
@@ -115,14 +120,11 @@
 \NewPart{Skills}
 \begin{multicols}{2}
 \begin{itemize}
-    \linespread{1}
-    \item \textbf{Java}: Spring Boot, JSF, EJB, JMS
-    \item \textbf{Web development}: HTML5, CSS (Sass, Styled Components, CSS Modules), JavaScript/TypeScript, ReactJS, Angular 2+, REST, GraphQL, Static Site Generators (Gatsby and NextJS), NestJS, Node, Express
-    \item \textbf{Database Operations}: PostgreSQL (+PostGIS), MySQL, Oracle, ImmuDB, MariaDB, ElasticSearch/OpenSearch, Redis, Kafka, RabbitMQ
-    \item \textbf{Machine Learning}: Sci-kit learn
-    \item \textbf{Devops}: Docker, Jenkins, TravisCI
-    \item \textbf{Version control}: Git, SVN, CVS. Trunk-based and Git-flow based development
-    \item \textbf{Extras}: \LaTeX (scientific paper writing), Shell Script
+    \item \textbf{Backend}: Java 17, Spring Boot (Webflux/Reactive Web, Kafka, Data, Cloud), Java Server Faces, EJB, JMS. REST, GraphQL, NestJS, Node, Express.
+    \item \textbf{Frontend}: HTML5, CSS (TailwindCSS, Sass, Styled Components, CSS Modules), JavaScript, TypeScript, React, Redux, Angular 2+, Static Site Generators (Gatsby and NextJS).
+    \item \textbf{Testing}: JUnit, Mockito, Cucumber, Jest, Cypress, Selenium, JMeter, TestContainers.
+    \item \textbf{Databases}: PostgreSQL (+PostGIS), MySQL, Oracle, Microsoft SQL Server, ImmuDB, MariaDB, ElasticSearch \& OpenSearch, Redis.
+    \item \textbf{Tools}: Git, SVN, CVS. Jira. Docker, Jenkins, TravisCI. Keycloak. Kubernetes \& Helm. Shell Scripting. Basic understandment about Terraform.
 \end{itemize}
 \end{multicols}
 % \vspace{-1cm}
