@@ -1,0 +1,169 @@
+% Diogo Moreira personal CV
+% I made this CV following this tutorial
+% http://www.howtotex.com/general/a-guide-to-building-a-plain-and-simple-latex-cv/
+
+\documentclass[a4paper,10pt]{article}
+\usepackage{amsmath,amsfonts,amsthm} 
+\usepackage[pdftex]{graphicx} 
+\usepackage[utf8]{inputenc}
+\usepackage[svgnames]{xcolor}
+\usepackage{array, booktabs}
+\usepackage{caption}
+\usepackage{geometry}
+\usepackage{multicol}
+\geometry{
+    a4paper,
+    left=15mm,
+    right=15mm,
+    top=15mm,
+    bottom=15mm
+}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{sectsty}
+
+\pagestyle{empty}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+\sectionfont{% 
+	\sectionrule{0pt}{0pt}{-5pt}{.25pt} 
+}
+	
+\newlength{\spacebox} 
+\settowidth{\spacebox}{88888888}
+\newcommand{\sepspace}{\vspace*{0.75em}}
+
+\newcommand{\Name}[1]{\noindent\huge\textbf{#1}\normalsize\normalfont}
+
+\newcommand{\NewPart}[1]{\section*{\large{\textbf{#1}}}}
+
+\newcommand{\PersonalEntry}[2]{
+		\noindent\hangindent=0em\hangafter=0 		% Indentation
+		\parbox{\spacebox}{							% Box to align text
+		\textit{#1}}								% Entry name (birth, address, etc.)
+		\hspace{4.5em} #2 \par}						% Entry value
+
+\newcommand{\EducationEntry}[4]{
+		\noindent \textbf{#1} \hfill 					% Study
+		\colorbox{White}{%
+			\parbox{6em}{%
+			\hfill\color{Black}#2}} \par				% Duration
+		\noindent \textit{#3} \par						% School
+		\noindent \hangindent=0em\hangafter=0 \normalsize #4 	% Description
+		\normalsize \par
+		\vspace{0.5em}
+	}
+
+\newcommand{\WorkEntry}[4]{								% Same as \EducationEntry
+		\noindent \textbf{#1} \hfill 					% Jobname
+		\colorbox{White}{\color{Black}#2} \par			% Duration
+		\noindent \textit{#3} \par						% Company
+		\noindent\hangindent=2em\hangafter=0 \normalsize #4 	% Description
+		\normalsize \par
+		\vspace{0.5em}
+	}
+		
+%%% ------------------------------------------------------------
+%%% BEGIN DOCUMENT
+%%% ------------------------------------------------------------
+\begin{document}
+
+\Name{Diogo Dantas Moreira}
+
+%%% Personal details
+%%% ------------------------------------------------------------
+
+
+\begin{multicols}{2}
+
+\PersonalEntry{email}{\texttt{\href{mailto:diogo.dmoreira@gmail.com}{diogo.dmoreira@gmail.com}}}
+\PersonalEntry{fone/whatsapp}{+55 83 99655 1808}
+\PersonalEntry{linkedIn}{\href{http://br.linkedin.com/in/diogodmoreira/}{/diogodmoreira}}
+\PersonalEntry{github}{\href{http://github.com/diogomoreira}{/diogomoreira}}
+\end{multicols}
+%%% Education
+%%% ------------------------------------------------------------
+
+\NewPart{Experiência Profissional}
+
+\WorkEntry{Engenheiro de Software}{Jun/2021 - Dez/2023}{\href{https://www.translucentcomputing.com/}{Translucent Computing}, Full-time}{Desenvolvimento de sistemas para a área de saúde baseados na especificação FHIR utilizando Java com Spring Boot e Webflux/Reactive Web, NestJS (+Express) integrado com Kafka, Keycloak, Redis, PostgreSQL e Elasticsearch/Opensearch. Desenvolvimento de módulos de integração utilizando OpenAI API. Desenvolvimento de uma DSL utilizadno Typescript e NodeJS APIs. Pequenas tarefas de frontend utilizando React + Redux. Também estive envolvido em atividades utilizando Terraform, Shell Script e Kubernetes.}
+
+\WorkEntry{Professor Efetivo}{Out/2014 - Atual}{\href{https://www.ifpb.edu.br/}{Instituto Federal da Paraíba}, Full-time}{Disciplinas relacionadas a Desenvolvimento / Engenharia de Software, cobrindo tópicos sobre Desenvolvimento Web (com HTML, CSS, Javascript, Node e Express), Testes de Software (com JUnit + Mockito, Jest, Cypress e Selenium), Padrões de Projeto, UML, REST, Spring Boot, Git, Maven e JavaEE.}
+
+\WorkEntry{Engenheiro de Software}{Jan/2013 - Out/2014}{\href{http://www.phoebus.com.br/}{Phoebus Tecnologia}, Full-time}{Desenvolvimento de sistemas de backoffice para o mercado de processamento de transações utilizando Java com Spring, Adobe Flex e JPA / Hibernate utilizando bases de dados Oracle e SQL Server. Desenvolvimento de relatórios com BIRT Report. Documentação de manuais de aplicações para implantação e operação de sistemas.}
+
+\WorkEntry{Desenvolvedor de Software}{Jun/2012-Jan/2013}{\href{https://www.indracompany.com/es/pais/brasil}{Indra Company}, Full-time}{Desenvolvimento de sistemas para o Tribunal de Justiça do Estado da Paraíba utilizando tecnologias Java (JSF 2.0 com Richfaces e Primefaces, JPA), HTML, CSS, XML. Além disso, trabalhei com Maven para automação de builds e Redmine.}
+
+\WorkEntry{Desenvolvedor de Software}{Jan/2011-Jan/2012}{Recursive, Part-time}{A principal atribuição do cargo era desenvolver uma solução para a biblioteca do IFPB - Campus Cajazeiras, o qual foi denominado SIB - Sistema Bibliotecário. Minhas atribuições envolviam o desenvolvimento front-end e back-end utilizando tecnologias Java, como EJB, JPA e Swing. Além disso, fui envolvido em projetos pontuais para clientes externos que foram desenvolvidos em PHP, HTML, CSS e jQuery.}
+
+\NewPart{Formação acadêmica}
+
+\EducationEntry{Mestrado em Software Engineering}{2017 - 2019}{\href{https://cesar.school/}{CESAR School} - Recife - PE, Brasil}{Linha de Pesquisa: Testes Metamórficos em Sistemas Inteligentes}
+
+\EducationEntry{Especialização. MBA in Software Engineering}{2013 - 2014}{\href{https://estacio.br/}{Estácio iDEZ} - João Pessoa - PB, Brasil}{}
+
+\EducationEntry{Graduação em Análise e Desenvolvimento de Sistemas}{2008 - 2012}{\href{https://www.ifpb.edu.br/}{Instituto Federal da Paraíba} - Cajazeiras - PB, Brasil}{}
+
+
+%%% Skills
+%%% ------------------------------------------------------------
+
+\NewPart{Habilidades}
+\begin{multicols}{2}
+\begin{itemize}
+    \item \textbf{Backend}: Java 17, Spring Boot (Webflux/Reactive Web, Kafka, Data, Cloud), Java Server Faces, EJB, JMS. REST, GraphQL, NestJS, Node, Express.
+    \item \textbf{Frontend}: HTML5, CSS (TailwindCSS, Sass, Styled Components, CSS Modules), JavaScript, TypeScript, React, Redux, Angular 2+, Static Site Generators (Gatsby and NextJS).
+    \item \textbf{Testes}: JUnit, Mockito, Cucumber, Jest, Cypress, Selenium, JMeter, TestContainers.
+    \item \textbf{Bancos de Dados}: PostgreSQL (+PostGIS), MySQL, Oracle, Microsoft SQL Server, ImmuDB, MariaDB, ElasticSearch \& OpenSearch, Redis.
+    \item \textbf{Ferramentas/DevOps}: Git, SVN, CVS. Jira. Docker, Jenkins, TravisCI. Keycloak. Kubernetes \& Helm. Shell Scripting. Conhecimento básico de Terraform.
+\end{itemize}
+\end{multicols}
+% \vspace{-1cm}
+
+
+% Languages and Frameworks
+% \SkillsEntry{Software}{\textbf{Java}, JPA, Servlets, JSP, JSF, EJB}
+% \SkillsEntry{}{Spring Framework, MVC \& Data}
+% \SkillsEntry{}{HTML5 \& CSS}
+% \SkillsEntry{}{Adoble Flex + ActionScript 3.0}
+% \SkillsEntry{}{Projetos orientados a objeto utilizando UML}
+% \SkillsEntry{}{Padrões de projeto orientado a objeto para aplicações desktop e web}
+% \SkillsEntry{}{Android}
+% \SkillsEntry{}{Shell Scripting}
+% \SkillsEntry{}{Noções de desenvolvimento com C\# e ASP.NET MVC}
+
+\sepspace
+
+% Databases
+% \SkillsEntry{Databases}{PostgreSQL (+PostGIS)}
+% \SkillsEntry{}{Microsoft SQL Server}
+% \SkillsEntry{}{Oracle Database}
+
+\sepspace
+
+% Tools
+
+% \SkillsEntry{Ferramentas}{SCMs: CVS, SVN e GIT}
+% \SkillsEntry{}{Maven}
+% \SkillsEntry{}{Tomcat, Glassfish, Jetty Server}
+% \SkillsEntry{}{JUDE / Astah}
+% \SkillsEntry{}{SOAPUI}
+% \SkillsEntry{}{Oracle SQL Developer}
+% \SkillsEntry{}{Microsoft SQL Server Management}
+% \SkillsEntry{}{Redmine}
+
+% \NewPart{Idiomas}{}
+% \SkillsEntry{}{Português (nativo)}
+% \SkillsEntry{}{Inglês (avançado)}
+
+%%% References
+%%% ------------------------------------------------------------
+
+
+
+\end{document}
